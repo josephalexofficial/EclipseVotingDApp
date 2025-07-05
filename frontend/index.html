@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eclipse Voting dApp</title>
+  <style>
+    /* Reset default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    /* Body styling with a gradient background */
+    body {
+      background: linear-gradient(135deg, #1a0b2e 0%, #2e1a47 100%); /* Inspired by Solana/Eclipse colors */
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* Main container */
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05); /* Glassmorphism effect */
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Headings */
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #a855f7; /* Purple accent */
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin: 20px 0 10px;
+      color: #e9d5ff; /* Light purple */
+    }
+
+    /* Input and button styling */
+    .input-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 12px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      outline: none;
+      transition: background 0.3s ease;
+    }
+
+    input[type="text"]::placeholder {
+      color: #b0b0b0;
+    }
+
+    input[type="text"]:focus {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #a855f7, #ec4899); /* Gradient button */
+      color: #ffffff;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4);
+    }
+
+    /* Proposal list styling */
+    ul#proposalList {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    ul#proposalList li {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s ease;
+    }
+
+    ul#proposalList li:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    ul#proposalList li button {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      background: #4ade80; /* Green for vote button */
+    }
+
+    ul#proposalList li button:hover {
+      box-shadow: 0 4px 12px rgba(74, 222, 128, 0.4);
+    }
+
+    /* Responsive design */
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .input-group {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+
+    /* Footer note */
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #b0b0b0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Eclipse Voting dApp</h1>
+    <h2>Create Proposal</h2>
+    <div class="input-group">
+      <input id="proposalName" type="text" placeholder="Enter proposal name">
+      <button onclick="createProposal()">Create</button>
+    </div>
+    <h2>Proposals</h2>
+    <ul id="proposalList"></ul>
+    <p class="footer">Built by Alex Joseph | Powered by Solana</p>
+  </div>
+  <script src="https://cdn.ethers.io/lib/ethers-5.7.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
