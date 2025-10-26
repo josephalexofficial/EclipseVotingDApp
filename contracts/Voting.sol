@@ -35,4 +35,5 @@ contract Voting {
     function getProposalCount() public view returns (uint256) {
         return proposals.length;
     }
+
 }
